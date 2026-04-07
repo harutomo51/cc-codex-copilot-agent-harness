@@ -14,10 +14,10 @@ check_exists() {
 
 # CLAUDE.md が参照するパス・ファイルを検証
 check_exists ".agent-team"
-check_exists "scripts/init-workspace.sh"
-check_exists "shared/review-findings.schema.json"
-check_exists "shared/result.schema.json"
-check_exists "shared/coordination-protocol.md"
+check_exists ".claude/scripts/init-workspace.sh"
+check_exists ".claude/shared/review-findings.schema.json"
+check_exists ".claude/shared/result.schema.json"
+check_exists ".claude/shared/coordination-protocol.md"
 check_exists ".claude/agents"
 check_exists ".claude/settings.json"
 

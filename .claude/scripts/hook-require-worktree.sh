@@ -4,7 +4,7 @@
 #
 # - 対象ツール: Write / Edit / NotebookEdit（matcher 側で絞る想定）
 # - 対象パス: frontend/ backend/ infrastructure/ .github/workflows/ tests/
-# - それ以外のパス（.agent-team/, docs/, shared/, .claude/, scripts/, *.md 等）は素通し
+# - それ以外のパス（.agent-team/, docs/, .claude/shared/, .claude/, .claude/scripts/, *.md 等）は素通し
 #
 # 判定方法:
 #   git rev-parse --git-dir          -> worktree の場合 .git/worktrees/<name>

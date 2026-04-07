@@ -20,7 +20,7 @@ tools:
 2. `docs/architecture/` の設計に従う
 3. 指示されたタスクの範囲のみ実装する
 4. API結合は `docs/api/` のコントラクトに基づく
-5. **`shared/frontend-design-guidelines.md` のデザイン品質ガイドラインに従う**（ディスパッチ時にプロンプトに含まれる）
+5. **`.claude/shared/frontend-design-guidelines.md` のデザイン品質ガイドラインに従う**（ディスパッチ時にプロンプトに含まれる）
 6. 完了後 `.agent-team/results/RESULT-NNN.md` に結果サマリーを出力する
 
 ## 担当領域
@@ -92,7 +92,7 @@ ISSUE_NUMBER=$(echo "$ISSUE_URL" | grep -oE '[0-9]+$')
 - `owner`: `$OWNER`
 - `repo`: `$REPO_NAME`
 - `issue_number`: 作成した Issue 番号
-- `custom_instructions`: アーキテクチャルール・デザイン品質ガイドライン（`shared/frontend-design-guidelines.md`）の要点
+- `custom_instructions`: アーキテクチャルール・デザイン品質ガイドライン（`.claude/shared/frontend-design-guidelines.md`）の要点
 
 ### 4. PR 作成の確認
 
@@ -103,7 +103,7 @@ ISSUE_NUMBER=$(echo "$ISSUE_URL" | grep -oE '[0-9]+$')
 Issue URL と PR URL を `.agent-team/results/RESULT-NNN.md` に出力する。
 
 
-## デザイン品質基準（shared/frontend-design-guidelines.md 準拠）
+## デザイン品質基準（.claude/shared/frontend-design-guidelines.md 準拠）
 
 - 実装前に美的方向性（Tone）を決定し、結果サマリーに記載する
 - 汎用フォント（Inter, Roboto, Arial, system fonts）を使用しない

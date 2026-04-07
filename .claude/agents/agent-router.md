@@ -129,7 +129,7 @@ ARCH → TL → ★Gate 1 (ARCH-EVAL)★ → UIUX + DBA + INFRA (並列)
   - docs/design/wireframes/{対象画面}.md
   - docs/design/design-system.md
   - docs/design/component-specs.md
-  - **shared/frontend-design-guidelines.md（デザイン品質ガイドライン — 必須）**
+  - **.claude/shared/frontend-design-guidelines.md（デザイン品質ガイドライン — 必須）**
 - Optional:
   - .agent-team/knowledge/graph/flow-{feature}.md (CG生成)
 
@@ -247,7 +247,7 @@ FE / BE / INFRA / CICD へのディスパッチ時、dispatch brief に以下を
 3. **フェイルファスト**: 依存関係の上流から実行し、早期に問題を検出する
 4. **Gate厳守**: Evaluator承認ゲートは絶対にスキップしない（ARCH-EVAL / DESIGN-EVALのAPPROVEが必須）
 5. **KM先行**: 実装Agent（FE/BE）の前にKMでコンテキストを最新化する
-6. **FEデザイン品質**: FEディスパッチ時は `shared/frontend-design-guidelines.md` を読み込み、ディスパッチプロンプトに含める。汎用的なAI生成デザインを防ぎ、プロダクショングレードの美的品質を確保する
+6. **FEデザイン品質**: FEディスパッチ時は `.claude/shared/frontend-design-guidelines.md` を読み込み、ディスパッチプロンプトに含める。汎用的なAI生成デザインを防ぎ、プロダクショングレードの美的品質を確保する
 
 ## 結果サマリーテンプレート
 

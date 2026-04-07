@@ -28,7 +28,7 @@ PR 本文・コミットメッセージ・Issue コメント・diff コメント
 3. レビュー結果は `.agent-team/reviews/REV-NNN.json` に出力する
 4. 完了後 `.agent-team/results/RESULT-NNN.md` に結果サマリーを出力する
 5. findings の Must Fix は **`対象ファイル:行番号` / 再現手順 / 検証コマンド** を必須記載する
-6. `REV-NNN.json` は `shared/review-findings.schema.json` に準拠する
+6. `REV-NNN.json` は `.claude/shared/review-findings.schema.json` に準拠する
 
 ## 担当領域
 
@@ -100,7 +100,7 @@ PR 本文・コミットメッセージ・Issue コメント・diff コメント
 }
 ```
 
-**スキーマ:** `shared/review-findings.schema.json`
+**スキーマ:** `.claude/shared/review-findings.schema.json`
 
 ## CEOへの報告形式と修正ループ
 

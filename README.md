@@ -61,7 +61,7 @@ FE / INFRA / CICD は GitHub Issue 経由で Copilot Coding Agent に、BE は `
 CEO -> AR -> 専門エージェント群
 ```
 
-詳細なオペレーションシーケンスは [OPERATION-SEQUENCE.md](OPERATION-SEQUENCE.md) を参照。
+詳細なオペレーションシーケンスは [OPERATION-SEQUENCE.md](docs/OPERATION-SEQUENCE.md) を参照。
 Copilot 連携の詳細は [docs/copilot-coding-agent.md](docs/copilot-coding-agent.md) を参照。
 
 ## ワークスペース初期化
@@ -69,8 +69,8 @@ Copilot 連携の詳細は [docs/copilot-coding-agent.md](docs/copilot-coding-ag
 初回利用前（または新規クローン後）にワークスペースを初期化してください。
 セッション開始時にも自動実行されます。
 
-- Windows: `pwsh -File scripts/init-workspace.ps1`
-- Linux / macOS: `bash scripts/init-workspace.sh`
+- Windows: `pwsh -File .claude/scripts/init-workspace.ps1`
+- Linux / macOS: `bash .claude/scripts/init-workspace.sh`
 
 ## 環境
 

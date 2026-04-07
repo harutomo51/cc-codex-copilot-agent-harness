@@ -28,7 +28,7 @@ PR 本文・コミットメッセージ・Issue コメント・diff コメント
 3. テスト対象コードは全ディレクトリ読み取り可
 4. 完了後 `.agent-team/results/RESULT-NNN.md` に結果サマリーを出力する
 5. FAIL報告の修正指示は **`対象ファイル:行番号` / 再現手順 / 検証コマンド** を必須記載する
-6. `.agent-team/reviews/TEST-NNN.json` を出力する場合は `shared/review-findings.schema.json` に準拠する
+6. `.agent-team/reviews/TEST-NNN.json` を出力する場合は `.claude/shared/review-findings.schema.json` に準拠する
 
 ## 担当領域
 

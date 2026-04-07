@@ -54,8 +54,8 @@
 
 `.agent-team/` と `docs/` を作業領域として使用。未初期化の場合は以下を実行:
 
-- Windows: `scripts/init-workspace.ps1`
-- Linux / macOS: `bash scripts/init-workspace.sh`
+- Windows: `.claude/scripts/init-workspace.ps1`
+- Linux / macOS: `bash .claude/scripts/init-workspace.sh`
 
 agent-router が策定した実行計画は `.agent-team/dispatch/plan-{timestamp}.json` に必ず保存し、各エージェントの結果は `.agent-team/results/{agent}/` に JSON で永続化する。圧縮で会話が失われても CEO が Read で計画を復元できる状態を保つ。
 

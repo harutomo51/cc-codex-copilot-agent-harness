@@ -211,11 +211,11 @@ sequenceDiagram
 - Evaluator が REJECT した場合、CEO が修正指示を AR 経由で対象 Agent に伝え、修正後に再評価（APPROVE までループ）
 - REJECT/FAIL の修正指示には `対象ファイル:行番号` を必須で含める
 - REJECT/FAIL の修正指示には `再現手順/検証観点` と `検証コマンド` を必須で含める
-- `.agent-team/reviews/*.json` は `shared/review-findings.schema.json` に準拠する
+- `.agent-team/reviews/*.json` は `.claude/shared/review-findings.schema.json` に準拠する
 - `FE/BE` は `PM` の WBS 完了前に開始しない
 - `BE` は `DBA` のスキーマ確定と migration 方針に従う
 - `REV/SEC/TEST` の結果が NG の場合は `KM` → `CG` で原因分析 → `AR` 経由で `FE/BE` に修正ディスパッチ → 不合格だったレビューAgentのみ再実行（全合格までループ、上限3回。3回で解消しない場合は人間にエスカレーション）
-- **FE/BE/INFRA/CICD は実装着手前に必ず git worktree を作成する**（`../cc-agent-harness-wt-{task-id}` / `claude/impl-{task-id}`）。メインツリーでの `frontend/` `backend/` `infrastructure/` `tests/` `.github/workflows/` への書き込みは PreToolUse フック (`scripts/hook-require-worktree.sh`) で exit 2 ブロックされる。AR は dispatch brief に `worktree_path` と `branch` を必ず含める。
+- **FE/BE/INFRA/CICD は実装着手前に必ず git worktree を作成する**（`../cc-agent-harness-wt-{task-id}` / `claude/impl-{task-id}`）。メインツリーでの `frontend/` `backend/` `infrastructure/` `tests/` `.github/workflows/` への書き込みは PreToolUse フック (`.claude/scripts/hook-require-worktree.sh`) で exit 2 ブロックされる。AR は dispatch brief に `worktree_path` と `branch` を必ず含める。
 
 ## Responsibility Matrix
 
