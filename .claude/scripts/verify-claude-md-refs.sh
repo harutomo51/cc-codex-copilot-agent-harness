@@ -22,7 +22,7 @@ check_exists ".claude/agents"
 check_exists ".claude/settings.json"
 
 # エージェント件数の整合性チェック
-EXPECTED=19
+EXPECTED=22
 ACTUAL=$(ls .claude/agents/*.md 2>/dev/null | wc -l)
 if [ "$EXPECTED" != "$ACTUAL" ]; then
   echo "エージェント件数不一致: CLAUDE.md記載=$EXPECTED / ファイル実数=$ACTUAL" >&2

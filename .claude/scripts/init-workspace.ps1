@@ -8,13 +8,15 @@ $dirs = @(
     ".agent-team\reports",
     ".agent-team\knowledge\graph",
     ".agent-team\routing",
+    "docs\requirements",
     "docs\architecture",
     "docs\design",
     "docs\design\wireframes",
     "docs\database",
     "docs\adr",
     "docs\api",
-    "docs\operations"
+    "docs\operations",
+    "docs\quality"
 )
 
 foreach ($dir in $dirs) {

@@ -17,10 +17,10 @@ Check_Exists ".claude\shared\review-findings.schema.json"
 Check_Exists ".claude\shared\result.schema.json"
 Check_Exists ".claude\shared\coordination-protocol.md"
 Check_Exists ".claude\agents"
-Check-Exists ".claude\settings.json"
+Check_Exists ".claude\settings.json"
 
 # エージェント件数の整合性チェック
-$expected = 19
+$expected = 22
 $actual = (Get-ChildItem ".claude\agents\*.md" -ErrorAction SilentlyContinue | Measure-Object).Count
 if ($expected -ne $actual) {
     Write-Error "エージェント件数不一致: CLAUDE.md記載=$expected / ファイル実数=$actual"

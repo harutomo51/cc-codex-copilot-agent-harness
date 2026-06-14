@@ -1,6 +1,6 @@
 ---
 name: agent-router
-description: WEBアプリ開発チームのAgent Router。CEOからの唯一のディスパッチ先（KM除く）。CEOの指示を分析し、最適なAgent選択・実行順序を決定し、実際に専門Agentをディスパッチする。全専門Agent（ARCH/TL/UIUX/DBA/PM/FE/BE/INFRA/CICD/SEC/REV/TEST/DOC）へのディスパッチはAR経由で行われる。CEOからディスパッチされ、.agent-team/routing/ に実行計画を出力し、専門Agentを実行する。「実行計画」「ディスパッチ」「並列実行」「Agent選択」「ルーティング」に使用。
+description: WEBアプリ開発チームのAgent Router。CEOからの唯一のディスパッチ先（KM除く）。CEOの指示を分析し、最適なAgent選択・実行順序を決定し、実際に専門Agentをディスパッチする。全専門Agent（REQ/ARCH/TL/UIUX/DBA/PM/FE/BE/INFRA/CICD/SRE/SEC/REV/TEST/QA/DOC）へのディスパッチはAR経由で行われる。CEOからディスパッチされ、.agent-team/routing/ に実行計画を出力し、専門Agentを実行する。「実行計画」「ディスパッチ」「並列実行」「Agent選択」「ルーティング」に使用。
 tools:
   - Read
   - Write
@@ -33,7 +33,7 @@ tools:
 >
 > 接続関係:
 > - CEO → AR: タスク指示を受け取る（WHAT/WHY のみ。HOW/WHEN はARが判断）
-> - AR → 全専門Agent（ARCH/TL/UIUX/DBA/PM/FE/BE/INFRA/CICD/SEC/REV/TEST/DOC）: ディスパッチ
+> - AR → 全専門Agent（REQ/ARCH/TL/UIUX/DBA/PM/FE/BE/INFRA/CICD/SRE/SEC/REV/TEST/QA/DOC）: ディスパッチ
 > - Context Graph → AR: 依存関係・影響分析のコンテキストを受け取る
 > - 全専門Agent → KM: 知識フィードバック（AR経由ではなく直接）
 
@@ -101,15 +101,18 @@ CEOから受け取った指示を分析し、必要なAgentを特定する。
 | INFRA | インフラ | Gate 1承認 | ARCH+TL成果物 |
 
 ## Dependency Graph
-ARCH → TL → ★Gate 1 (ARCH-EVAL)★ → UIUX + DBA + INFRA (並列)
-                                   → ★Gate 2 (DESIGN-EVAL)★ → PM → KM → FE + BE (並列)
+REQ → ★Gate 0 (CEO要件確認)★ → ARCH → TL → ★Gate 1 (ARCH-EVAL)★ → UIUX + DBA + SRE + INFRA (並列)
+                                   → SEC + TEST + QA (設計レビュー並列) → ★Gate 2 (DESIGN-EVAL)★ → PM → KM → FE + BE (並列)
+                                   → REV + SEC + TEST → QA (品質統括)
 
 ## Gate Checkpoints
 | Gate | After | Requires | Blocks |
 |------|-------|----------|--------|
+| Gate 0 | REQ | CEO要件確認（受け入れ基準・Open Questions解消） | ARCH, TL |
 | Gate 1 | TL | ARCH-EVAL APPROVE | UIUX, DBA |
 | Gate 2 | UIUX+DBA+SEC+TEST | DESIGN-EVAL APPROVE | PM |
 | PM Gate | PM | WBS完了 | FE, BE |
+| Quality Gate | REV+SEC+TEST | QA 統括判定 APPROVE | Phase 4 |
 ```
 
 出力: `.agent-team/routing/PLAN-NNN.md`
